@@ -1,0 +1,8 @@
+version: "2.1"
+services:
+  nginx-api-gateway:
+    image: nginx:1.19.6
+    ports:
+      - "9101:80"
+    volumes:
+      - ${PWD}/api-gateway/nginx/nginx.conf:/etc/nginx/nginx.conf:ro

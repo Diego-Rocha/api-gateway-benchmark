@@ -1,0 +1,26 @@
+version: "2.1"
+services:
+  api-user:
+    image: nginx:1.19.6
+    ports:
+      - "9001:80"
+    volumes:
+      - ${PWD}/fake-servers/volume-data/user/:/usr/share/nginx/html:ro
+  api-address:
+    image: nginx:1.19.6
+    ports:
+      - "9002:80"
+    volumes:
+      - ${PWD}/fake-servers/volume-data/address/:/usr/share/nginx/html:ro
+  api-attachment:
+    image: nginx:1.19.6
+    ports:
+      - "9003:80"
+    volumes:
+      - ${PWD}/fake-servers/volume-data/attachment/:/usr/share/nginx/html:ro
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
