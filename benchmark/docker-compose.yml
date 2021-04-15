@@ -1,0 +1,18 @@
+version: "2.1"
+services:
+  vegeta:
+    image: peterevans/vegeta:6.9.1
+    working_dir: "/results"
+    environment: 
+      - MAIN_HOST
+    volumes:
+      - ${PWD}/benchmark/results/:/results
+      - ${PWD}/benchmark/entrypoint.sh:/entrypoint.sh:ro
+      - ${PWD}/endpoints.sh:/endpoints.sh:ro
+    entrypoint: /entrypoint.sh
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16

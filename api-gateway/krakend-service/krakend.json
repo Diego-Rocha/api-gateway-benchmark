@@ -1,0 +1,45 @@
+{
+    "version": 2,
+    "name": "Krakend Gateway",
+    "endpoints": [
+        {
+            "endpoint": "/api/json/{id}",
+            "output_encoding": "no-op",
+            "backend": [
+                {
+                    "url_pattern": "/{id}.json",
+                    "host": [
+                        "http://api-json:80"
+                    ],
+                    "encoding": "no-op"
+                }
+            ]
+        },
+        {
+            "endpoint": "/api/xml/{id}",
+            "output_encoding": "no-op",
+            "backend": [
+                {
+                    "url_pattern": "/{id}.xml",
+                    "host": [
+                        "http://api-xml:80"
+                    ],
+                    "encoding": "no-op"
+                }
+            ]
+        },
+        {
+            "endpoint": "/api/pdf/{id}",
+            "output_encoding": "no-op",
+            "backend": [
+                {
+                    "url_pattern": "/{id}.pdf",
+                    "host": [
+                        "http://api-pdf:80"
+                    ],
+                    "encoding": "no-op"
+                }
+            ]
+        }
+    ]
+}

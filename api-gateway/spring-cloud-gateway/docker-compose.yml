@@ -1,0 +1,10 @@
+version: "2.1"
+services:
+  spring-cloud-gateway:
+    image: tmp/spring-boot-gateway
+    ports:
+      - "9102:8080"
+    environment: 
+      - SPRING_CONFIG_LOCATION=file:/application.yml
+    volumes:
+      - ${PWD}/api-gateway/spring-cloud-gateway/application.yml/:/application.yml:ro

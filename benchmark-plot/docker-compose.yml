@@ -1,0 +1,15 @@
+version: "2.1"
+services:
+  plotter:
+    image: demisto/matplotlib:1.0.0.18221
+    working_dir: "/usr/src/app"
+    environment: 
+      - MPLCONFIGDIR=/tmp/matplotlib
+      - PYTHONDONTWRITEBYTECODE=true
+      - INPUT_FOLDER=/input
+      - OUTPUT_FOLDER=/output
+    volumes:
+      - ${PWD}/benchmark-plot/app/:/usr/src/app
+      - ${PWD}/benchmark/results/:/input:ro
+      - ${PWD}/benchmark-plot/chart:/output
+    entrypoint: python main.py

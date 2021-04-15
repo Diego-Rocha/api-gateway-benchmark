@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: api-json
+          uri: 'http://api-json:80'
+          predicates:
+            - 'Path=/api/json/{segment}'
+          filters:
+            - 'SetPath=/{segment}.json'
+        - id: api-xml
+          uri: 'http://api-xml:80'
+          predicates:
+            - 'Path=/api/xml/{segment}'
+          filters:
+            - 'SetPath=/{segment}.xml'
+        - id: api-pdf
+          uri: 'http://api-pdf:80'
+          predicates:
+            - 'Path=/api/pdf/{segment}'
+          filters:
+            - 'SetPath=/{segment}.pdf'

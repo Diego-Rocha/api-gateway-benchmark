@@ -1,0 +1,8 @@
+version: "2.1"
+services:
+  krakend-service:
+    image: devopsfaith/krakend
+    ports:
+      - "9103:8080"
+    volumes:
+      - ${PWD}/api-gateway/krakend-service/krakend.json:/etc/krakend/krakend.json:ro

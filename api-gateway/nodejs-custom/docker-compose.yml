@@ -1,0 +1,7 @@
+version: "2.1"
+services:
+  node-custom:
+    build: ${PWD}/api-gateway/nodejs-custom
+    image: tmp/node-custom-gateway
+    ports:
+      - "9105:8080"
