@@ -1,2 +1,3 @@
 benchmark/results
 benchmark-plot/chart
+**/node_modules/**
